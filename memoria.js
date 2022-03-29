@@ -75,11 +75,11 @@ const App = () => {
         }
     
         if(win === 30){
-            win=true
+            winner=true
             document.getElementById("win").className = "banner"
         }
         else{
-            win=false
+            winner=false
             document.getElementById("win").className = "disp_none"
         }
     }, [cartas])
@@ -93,34 +93,34 @@ const App = () => {
     }
 
 
-    return(
-        <div className="App">
-            <h1>Kirby memory game</h1>
-                <button onClick={mezclarCartas}>Nuevo Juego</button>
-    
-                <div className="card-grid">
-                {cartas.map( card => (
-                    
-                    <div className="card" key={card.id}>
-                        <div className={card.turned ? "turned" : ""}>
-                            <img className="front" src={card.src} alt="card front"/>
-                            <img className="back" src="cover.png" alt="card back"  onClick={()=>{click_card(card)}}/>
-                        </div>
+return(
+    <div className="App">
+        <h1>Kirby memory game</h1>
+            <button onClick={mezclarCartas}>Nuevo Juego</button>
+
+            <div className="card-grid">
+            {cartas.map( card => (
+                
+                <div className="card" key={card.id}>
+                    <div className={card.turned ? "turned" : ""}>
+                        <img className="front" src={card.src} alt="card front"/>
+                        <img className="back" src="cover.png" alt="card back"  onClick={()=>{click_card(card)}}/>
                     </div>
-    
-                ))}
-                <div className="disp_none" id="win">
-                    <h1>Has ganado! Presiona el boton para comenzar otro juego</h1>
                 </div>
+
+            ))}
+            <div className="disp_none" id="win">
+                
             </div>
-            <div className="footer">
-                <p className="foot_element">Movimientos: {turnos}</p>
-            </div>
-            
-    
-            
         </div>
-    )
+        <div className="footer">
+            <p className="foot_element">Movimientos: {turnos}</p>
+        </div>
+        
+
+        
+    </div>
+)
 
 
     
