@@ -24,6 +24,8 @@ const App = () => {
          .sort(() => Math.random() -0.5)
          .map((card)=> ({...card, id: Math.random() }))
 
+    setChoiceOne(null)
+    setChoiceTwo(null)
     setcartas(mezclarCartas)
     setTurnos(0)
     setWin(0)
@@ -43,7 +45,7 @@ const App = () => {
         if(choiceOne && choiceTwo){
             if(choiceOne.src === choiceTwo.src){
 
-                setCartas( verCarta => {
+                setcartas( verCarta => {
                     return verCarta.map( card => {
                         if(card.src === choiceOne.src){
                             return {...card, match : true}
@@ -56,8 +58,8 @@ const App = () => {
 
                 resetTurno()
             }else{
-                choiceOne.volteada = false
-                choiceTwo.volteada = false
+                choiceOne.turned = false
+                choiceTwo.turned = false
                 setTimeout( () => resetTurno(), 1000)
             }
         }
@@ -70,7 +72,7 @@ const App = () => {
     React.useEffect(() => {
         for( const card of cartas){
             if(card.match===true){
-                setGanar(prevganar => prevganar + 1)
+                setWin(prevwin => prevwin + 1)
             }
         }
     
@@ -87,8 +89,8 @@ const App = () => {
 
     
     const resetTurno = () => {
-        choiceOne(null)
-        choiceTwo(null)       
+        setChoiceOne(null)
+        setChoiceTwo(null)       
         setTurnos(prevturnos => prevturnos + 1)
     }
 
@@ -104,12 +106,13 @@ return(
                 <div className="card" key={card.id}>
                     <div className={card.turned ? "turned" : ""}>
                         <img className="front" src={card.src} alt="card front"/>
-                        <img className="back" src="cover.png" alt="card back"  onClick={()=>{click_card(card)}}/>
+                        <img className="back" src="cover.png" alt="card back"  onClick={()=>{handleClick(card)}}/>
                     </div>
                 </div>
 
             ))}
             <div className="none" id="win">
+                <h1>Has ganado! Presiona el boton para jugar de nuevo</h1>
                 
             </div>
         </div>
