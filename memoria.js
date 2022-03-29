@@ -35,11 +35,15 @@ const App = () => {
     
 
 
-    function handleClick (card) { 
+   function handleClick (card) { 
         choiceOne ? setChoiceTwo(card): setChoiceOne(card)
         card.turned = true
+        console.log("Works")
 
     }
+
+   
+      
 
     React.useEffect(() => {
         if(choiceOne && choiceTwo){
