@@ -80,7 +80,7 @@ const App = () => {
         }
         else{
             winner=false
-            document.getElementById("win").className = "disp_none"
+            document.getElementById("win").className = "none"
         }
     }, [cartas])
 
@@ -109,7 +109,7 @@ return(
                 </div>
 
             ))}
-            <div className="disp_none" id="win">
+            <div className="none" id="win">
                 
             </div>
         </div>
