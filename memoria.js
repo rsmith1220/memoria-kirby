@@ -6,7 +6,7 @@ const FotoCarta=[
     {"src":"metaknight.png", match:false, turned:false},
     {"src":"tomato.png", match:false, turned:false},
     {"src":"wd.png", match:false, turned:false},
-    {"src":"whispywoods.png", match:false, turned:false}
+    {"src":"whispyw.png", match:false, turned:false}
 ]
 
 const App = () => {
